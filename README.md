@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Testing React with Jest & React Testing Library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## React Tasting Library philosophy
 
-## Available Scripts
+### What RTL do?
+1. Create a Virtual DOM to Testing
+    - and utilities to interacting with DOM
+2. 
 
-In the project directory, you can run:
+## What is React Tasting Library?
+React tasting library is a testing DOM focusing:
+- Rendering components into Virtual DOME
+- Searching Virtual DOME 
+- Interacting with the Virtual DOM (events, click, etc)
 
-### `npm start`
+## What is Jest?
+Jest is a test runner environment:
+- We can find test
+- we can run test
+- we can make assertions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Test Driven Development - TDD
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Writing tests before writing code:
+- Then write code according to 'Spec' set by tests
 
-### `npm test`
+Red-Green testing
+- Tests fail before code is written
+1. Write test
+2. write code
+3. test failed
+4. write code
+5. test success
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Why TDD?
+1. Make a huge different in how it feel write tests
+    - Part of the coding process, not a "chore" to do at the end.
+2. More efficient 
+    - Re-runs tests "for free" after changes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Types of Tests
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Unit tests**
+    - Test one unit of code in isolation
+2. **Integration tests**
+    - Test how multiple units of code work together
+3. **Function tests**
+    - Test a particular function of software
+4. **End-to-End testing / Acceptance**
+    - Use actual browser and server (Cypress / Selenium)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> Your not testing your code, your testing behaviors.
 
-### `npm run eject`
+## Different MindSet between Unit testing VS Functional Testing
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Unit testing
+- More isolated as possible ( mocks dependencies, test internals).
+- Very easy to pinpoint failures.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Functional Testing
+- Include all relevant unit testing to test a user behavior.
+- Close to how users interact wth the software
+- Robust tests
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Accessibility and Finding Elements
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+React Testing Library recommends finding elements by accessibility handles
+[Guide which Query](https://testing-library.com/docs/queries/about)
+[Role Definitions](https://www.w3.org/TR/wai-aria/#role_definitions)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Queries Accessible to Everyone
+2. Semantic Queries HTML5
+3. Test IDs
