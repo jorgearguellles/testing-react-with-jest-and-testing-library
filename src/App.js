@@ -4,8 +4,6 @@ import './App.css';
 function App() {
   const [ buttonColor, setButtonColor ] = useState('red');
 
-  
-
   const newBtnColor = buttonColor === 'red' ? 'blue' : 'red';
 
   return (
