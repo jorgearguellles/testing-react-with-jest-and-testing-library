@@ -15,6 +15,8 @@ describe("Testing <ColorButtonApp />", ()=>{
   });
   
   test('3. Button turned Blue when clicked ', () => {
+    render(<App/>);
+    const btn = screen.getByRole('button', { name: 'Change to blue' }); // Find an element with Button & text 'Change to blue'
     // Simulate event: Click button
     fireEvent.click(btn); 
     
@@ -23,10 +25,12 @@ describe("Testing <ColorButtonApp />", ()=>{
   });
 
   test('4. Button turned text to: "Change to red" when clicked ', () => {
+    render(<App/>);
+    const btn = screen.getByRole('button', { name: 'Change to blue' }); // Find an element with Button & text 'Change to blue'
     // Simulate event: Click button
     fireEvent.click(btn); 
 
-    // Expect background color turn to blue
+    // Expect test turn to Change to red
     expect(btn.textContent).toEqual('Change to red');
   });
 })
