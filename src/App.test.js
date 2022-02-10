@@ -1,17 +1,33 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 
-describe("Testing App.js - Renders learn react link", ()=>{
-  test('1. Accessibility by Text', () => {
-    render(<App />);
-    const linkElement = screen.getByText(/learn react/i);
-    expect(linkElement).toBeInTheDocument();
+describe("Testing <ColorButtonApp />", ()=>{
+  
+  render(<App/>);
+  const btn = screen.getByRole('button', { name: 'Change to blue' }); // Find an element with Button & text 'Change to blue'
+
+  test('1. Button has correct initial color: ', () => {
+    expect(btn).toHaveStyle({ backgroundColor: 'red' }) // Expect the background color to be red
+  });
+
+  test('2. Button has correct initial text "Change to blue" ', () => {
+    expect(btn.textContent).toEqual('Change to blue'); // Expect the text to be 'Change to blue'
   });
   
-  test("2. Accessibility by Role ", ()=>{
-    render(<App />);
-    const linkElement = screen.getByRole('link', { name: /learn react/i} );
-    expect(linkElement).toBeInTheDocument();
-  })
+  test('3. Button turned Blue when clicked ', () => {
+    // Simulate event: Click button
+    fireEvent.click(btn); 
+    
+    // Expect background color turn to blue
+    expect(btn).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  test('4. Button turned text to: "Change to red" when clicked ', () => {
+    // Simulate event: Click button
+    fireEvent.click(btn); 
+
+    // Expect background color turn to blue
+    expect(btn.textContent).toEqual('Change to red');
+  });
 })
 
